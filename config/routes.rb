@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'top' => 'homes#top'
   post 'books' => 'books#create'
   get 'new' => 'books#new'
+  root :to => 'homes#top'
 end
