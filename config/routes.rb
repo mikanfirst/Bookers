@@ -3,6 +3,5 @@ Rails.application.routes.draw do
   resources :books
   get 'top' => 'homes#top'
   post 'books' => 'books#create'
-  get 'new' => 'books#new'
   root :to => 'homes#top'
 end

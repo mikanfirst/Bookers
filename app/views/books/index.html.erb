@@ -1,3 +1,4 @@
+<%= flash[:success] %>
 <h1>Books</h1>
 
 <table>
@@ -21,8 +22,21 @@
   </tbody>
 </table>
 
-
-
+<h1>New Book</h1>
+<% if @book.errors.any? %>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    </ul>
+      <% end %>
+<% end %>
+<%= form_with model: @book, url:"/books", local:true do |f| %>
+    <div>Title</div>
+    <%= f.text_field :title %>
+    <div>Body</div>
+    <%= f.text_field :body %>
+    <br><%= f.submit 'Create Book' %></br>
+<% end %>
 
 
 
