@@ -1,7 +1,15 @@
-<%= flash[:success] %>
-<p>title:<%= @book.title %></p>
-<p>Body:<%= @book.body %></p>
-<%= link_to "edit", edit_book_path(@book.id) %>
-<%= link_to "back", "/books" %>
+<body>
+  <div class=f-message><%= flash[:success] %></div>
 
+  <div class=field>
+    <label>title:<%= @book.title %></label>
+  </div>
+
+  <div class=field>
+    <label>Body:<%= @book.body %></label>
+  </div>
+  <%= link_to "edit", edit_book_path(@book.id) %>
+  |
+  <%= link_to "back", "/books" %>
+</body>
 

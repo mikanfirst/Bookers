@@ -1,18 +1,21 @@
-<%= flash[:success] %>
-<h1>Editing Book</h1>
-<% if @book.errors.any? %>
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-    </ul>
-      <% end %>
-<% end %>
-<%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
-  <h4>title</h4>
-  <%= f.text_field :title %>
-  <h4>body</h4>
-  <%= f.text_area :body%>
-  <br><%= f.submit 'Update Book' %></br>
-<% end %>
-<%= link_to "show", book_path(@book.id) %>
-<%= link_to "back", "/books" %>
+<body>
+  <div class=f-message><%= flash[:success] %></div>
+  <h1>Editing Book</h1>
+  <%= render 'layouts/error_messages' %>
+  <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
+    <div class=field>
+      <label>title</label>
+      <%= f.text_field :title %>
+    </div>
+    <div class=field>
+      <label>body</label>
+      <%= f.text_area :body%>
+    </div>
+    <div class=action>
+      <%= f.submit 'Update Book' %>
+    </div>
+  <% end %>
+  <%= link_to "show", book_path(@book.id) %>
+  |
+  <%= link_to "back", "/books" %>
+</body>
